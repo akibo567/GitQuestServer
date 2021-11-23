@@ -1,3 +1,498 @@
-{
-  "msg":"Hello World!"
-}
+[
+  {
+    "name": ".editorconfig",
+    "path": ".editorconfig",
+    "sha": "f50e3f588eee860f867763a399ce0807ccd3daef",
+    "size": 109,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.editorconfig?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/.editorconfig",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/f50e3f588eee860f867763a399ce0807ccd3daef",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/.editorconfig",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.editorconfig?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/f50e3f588eee860f867763a399ce0807ccd3daef",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/.editorconfig"
+    }
+  },
+  {
+    "name": ".gitattributes",
+    "path": ".gitattributes",
+    "sha": "587b786e481632ea54a811d47b97d66a97d00870",
+    "size": 13,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.gitattributes?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/.gitattributes",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/587b786e481632ea54a811d47b97d66a97d00870",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/.gitattributes",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.gitattributes?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/587b786e481632ea54a811d47b97d66a97d00870",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/.gitattributes"
+    }
+  },
+  {
+    "name": ".github",
+    "path": ".github",
+    "sha": "b6427febb6e3aab2a9b8884c0177c86628b4b2c6",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.github?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/.github",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/b6427febb6e3aab2a9b8884c0177c86628b4b2c6",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.github?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/b6427febb6e3aab2a9b8884c0177c86628b4b2c6",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/.github"
+    }
+  },
+  {
+    "name": ".gitignore",
+    "path": ".gitignore",
+    "sha": "31d284a8d7b2e99ab7e2a2d184a9185d81979e87",
+    "size": 1275,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.gitignore?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/.gitignore",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/31d284a8d7b2e99ab7e2a2d184a9185d81979e87",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/.gitignore",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.gitignore?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/31d284a8d7b2e99ab7e2a2d184a9185d81979e87",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/.gitignore"
+    }
+  },
+  {
+    "name": ".shellcheckrc",
+    "path": ".shellcheckrc",
+    "sha": "bc119bdcafca653d1f548190f7f6a385ee7d26a5",
+    "size": 45,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.shellcheckrc?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/.shellcheckrc",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/bc119bdcafca653d1f548190f7f6a385ee7d26a5",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/.shellcheckrc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/.shellcheckrc?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/bc119bdcafca653d1f548190f7f6a385ee7d26a5",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/.shellcheckrc"
+    }
+  },
+  {
+    "name": "AppleModels",
+    "path": "AppleModels",
+    "sha": "5c66789ca13edcce96bb99cb70293613663e13ad",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/AppleModels?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/AppleModels",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/5c66789ca13edcce96bb99cb70293613663e13ad",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/AppleModels?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/5c66789ca13edcce96bb99cb70293613663e13ad",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/AppleModels"
+    }
+  },
+  {
+    "name": "Application",
+    "path": "Application",
+    "sha": "d74c6a5e0b2fd7029d0782b542ddbf0b5b167eb3",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Application?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Application",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/d74c6a5e0b2fd7029d0782b542ddbf0b5b167eb3",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Application?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/d74c6a5e0b2fd7029d0782b542ddbf0b5b167eb3",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Application"
+    }
+  },
+  {
+    "name": "Changelog.md",
+    "path": "Changelog.md",
+    "sha": "ee32a8ebe87cb4e8726269a7586c2d618787c77c",
+    "size": 39619,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Changelog.md?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/Changelog.md",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/ee32a8ebe87cb4e8726269a7586c2d618787c77c",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Changelog.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Changelog.md?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/ee32a8ebe87cb4e8726269a7586c2d618787c77c",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/Changelog.md"
+    }
+  },
+  {
+    "name": "Debug",
+    "path": "Debug",
+    "sha": "6e1a72a5e6e91184700b8eea6b9d00e9e67ae1e1",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Debug?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Debug",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/6e1a72a5e6e91184700b8eea6b9d00e9e67ae1e1",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Debug?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/6e1a72a5e6e91184700b8eea6b9d00e9e67ae1e1",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Debug"
+    }
+  },
+  {
+    "name": "Docs",
+    "path": "Docs",
+    "sha": "721baf2af15ab9aba2fe17ad494cfa49f204e8e1",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Docs?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Docs",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/721baf2af15ab9aba2fe17ad494cfa49f204e8e1",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Docs?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/721baf2af15ab9aba2fe17ad494cfa49f204e8e1",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Docs"
+    }
+  },
+  {
+    "name": "Doxyfile",
+    "path": "Doxyfile",
+    "sha": "7101b5a3c92a562ca615a93bc29c3d5a78e4fe36",
+    "size": 110169,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Doxyfile?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/Doxyfile",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/7101b5a3c92a562ca615a93bc29c3d5a78e4fe36",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/Doxyfile",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Doxyfile?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/7101b5a3c92a562ca615a93bc29c3d5a78e4fe36",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/Doxyfile"
+    }
+  },
+  {
+    "name": "Include",
+    "path": "Include",
+    "sha": "c8b59484549da0873945e4edba83281c4b3f6837",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Include?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Include",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/c8b59484549da0873945e4edba83281c4b3f6837",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Include?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/c8b59484549da0873945e4edba83281c4b3f6837",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Include"
+    }
+  },
+  {
+    "name": "LICENSE.txt",
+    "path": "LICENSE.txt",
+    "sha": "9a15cce349e6e8a4eeaf3b31fbb3cfe7a3214856",
+    "size": 1601,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/LICENSE.txt?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/LICENSE.txt",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/9a15cce349e6e8a4eeaf3b31fbb3cfe7a3214856",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/LICENSE.txt",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/LICENSE.txt?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/9a15cce349e6e8a4eeaf3b31fbb3cfe7a3214856",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/LICENSE.txt"
+    }
+  },
+  {
+    "name": "Legacy",
+    "path": "Legacy",
+    "sha": "eaf45b26efe15119bc66cd20ba7027e9bd8929b1",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Legacy?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Legacy",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/eaf45b26efe15119bc66cd20ba7027e9bd8929b1",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Legacy?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/eaf45b26efe15119bc66cd20ba7027e9bd8929b1",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Legacy"
+    }
+  },
+  {
+    "name": "Library",
+    "path": "Library",
+    "sha": "1301b7d04d744123e8c937a179d4aa98b7353c2b",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Library?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Library",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/1301b7d04d744123e8c937a179d4aa98b7353c2b",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Library?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/1301b7d04d744123e8c937a179d4aa98b7353c2b",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Library"
+    }
+  },
+  {
+    "name": "OpenCorePkg.dec",
+    "path": "OpenCorePkg.dec",
+    "sha": "522ffbf2396d1d3b6a3ee1682030fbf67e213c48",
+    "size": 47562,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenCorePkg.dec?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenCorePkg.dec",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/522ffbf2396d1d3b6a3ee1682030fbf67e213c48",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/OpenCorePkg.dec",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenCorePkg.dec?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/522ffbf2396d1d3b6a3ee1682030fbf67e213c48",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenCorePkg.dec"
+    }
+  },
+  {
+    "name": "OpenCorePkg.dsc",
+    "path": "OpenCorePkg.dsc",
+    "sha": "611404c4f61ba8be9d9b3d65b545b315eea99708",
+    "size": 21654,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenCorePkg.dsc?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenCorePkg.dsc",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/611404c4f61ba8be9d9b3d65b545b315eea99708",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/OpenCorePkg.dsc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenCorePkg.dsc?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/611404c4f61ba8be9d9b3d65b545b315eea99708",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenCorePkg.dsc"
+    }
+  },
+  {
+    "name": "OpenCorePkg.xcodeproj",
+    "path": "OpenCorePkg.xcodeproj",
+    "sha": "de8f99ae13a3f4df27195b87eb8ef5f1bcb4ce84",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenCorePkg.xcodeproj?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/OpenCorePkg.xcodeproj",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/de8f99ae13a3f4df27195b87eb8ef5f1bcb4ce84",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenCorePkg.xcodeproj?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/de8f99ae13a3f4df27195b87eb8ef5f1bcb4ce84",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/OpenCorePkg.xcodeproj"
+    }
+  },
+  {
+    "name": "OpenDuetPkg.dec",
+    "path": "OpenDuetPkg.dec",
+    "sha": "27b875600ae1de0b217274efcf55daa30112a022",
+    "size": 1875,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenDuetPkg.dec?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenDuetPkg.dec",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/27b875600ae1de0b217274efcf55daa30112a022",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/OpenDuetPkg.dec",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenDuetPkg.dec?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/27b875600ae1de0b217274efcf55daa30112a022",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenDuetPkg.dec"
+    }
+  },
+  {
+    "name": "OpenDuetPkg.dsc",
+    "path": "OpenDuetPkg.dsc",
+    "sha": "fb60484753586490c12b95d5d319531a8f71d35a",
+    "size": 12519,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenDuetPkg.dsc?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenDuetPkg.dsc",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/fb60484753586490c12b95d5d319531a8f71d35a",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/OpenDuetPkg.dsc",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenDuetPkg.dsc?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/fb60484753586490c12b95d5d319531a8f71d35a",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenDuetPkg.dsc"
+    }
+  },
+  {
+    "name": "OpenDuetPkg.fdf",
+    "path": "OpenDuetPkg.fdf",
+    "sha": "b44180bf2678aa427722ec3c51b297528882c4bc",
+    "size": 5585,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenDuetPkg.fdf?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenDuetPkg.fdf",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/b44180bf2678aa427722ec3c51b297528882c4bc",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/OpenDuetPkg.fdf",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/OpenDuetPkg.fdf?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/b44180bf2678aa427722ec3c51b297528882c4bc",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/OpenDuetPkg.fdf"
+    }
+  },
+  {
+    "name": "Patches",
+    "path": "Patches",
+    "sha": "aae0d393b1030e19c51ba4495c24641cb67b6d98",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Patches?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Patches",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/aae0d393b1030e19c51ba4495c24641cb67b6d98",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Patches?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/aae0d393b1030e19c51ba4495c24641cb67b6d98",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Patches"
+    }
+  },
+  {
+    "name": "Platform",
+    "path": "Platform",
+    "sha": "3eebdd32c33fbdf5a20bdbe93eb03a6f82b4fdd8",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Platform?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Platform",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/3eebdd32c33fbdf5a20bdbe93eb03a6f82b4fdd8",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Platform?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/3eebdd32c33fbdf5a20bdbe93eb03a6f82b4fdd8",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Platform"
+    }
+  },
+  {
+    "name": "README.md",
+    "path": "README.md",
+    "sha": "32625d1b0b252931f3c15b8de0c8ae01bb93bc0b",
+    "size": 3524,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/README.md?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/README.md",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/32625d1b0b252931f3c15b8de0c8ae01bb93bc0b",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/README.md",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/README.md?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/32625d1b0b252931f3c15b8de0c8ae01bb93bc0b",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/README.md"
+    }
+  },
+  {
+    "name": "Staging",
+    "path": "Staging",
+    "sha": "955c978fc0d965f2907d8ea686ef751dd87c43c8",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Staging?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Staging",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/955c978fc0d965f2907d8ea686ef751dd87c43c8",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Staging?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/955c978fc0d965f2907d8ea686ef751dd87c43c8",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Staging"
+    }
+  },
+  {
+    "name": "Tests",
+    "path": "Tests",
+    "sha": "cf8390e6e30e2d01ff441ba373118bd13151a6eb",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Tests?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Tests",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/cf8390e6e30e2d01ff441ba373118bd13151a6eb",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Tests?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/cf8390e6e30e2d01ff441ba373118bd13151a6eb",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Tests"
+    }
+  },
+  {
+    "name": "User",
+    "path": "User",
+    "sha": "b5658b54daeda4bd3fa586b36c69919af15632bf",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/User?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/User",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/b5658b54daeda4bd3fa586b36c69919af15632bf",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/User?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/b5658b54daeda4bd3fa586b36c69919af15632bf",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/User"
+    }
+  },
+  {
+    "name": "Utilities",
+    "path": "Utilities",
+    "sha": "6a0362847392c2d59383aab1f4eb7f460c3c8f18",
+    "size": 0,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Utilities?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/tree/master/Utilities",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/6a0362847392c2d59383aab1f4eb7f460c3c8f18",
+    "download_url": null,
+    "type": "dir",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/Utilities?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/trees/6a0362847392c2d59383aab1f4eb7f460c3c8f18",
+      "html": "https://github.com/acidanthera/OpenCorePkg/tree/master/Utilities"
+    }
+  },
+  {
+    "name": "build_duet.tool",
+    "path": "build_duet.tool",
+    "sha": "2238415acc92b014c7d3674980d69ad2965bf538",
+    "size": 4419,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/build_duet.tool?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/build_duet.tool",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/2238415acc92b014c7d3674980d69ad2965bf538",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/build_duet.tool",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/build_duet.tool?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/2238415acc92b014c7d3674980d69ad2965bf538",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/build_duet.tool"
+    }
+  },
+  {
+    "name": "build_oc.tool",
+    "path": "build_oc.tool",
+    "sha": "68a00317efcaf30025ce65bad5b30655abb30458",
+    "size": 7416,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/build_oc.tool?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/build_oc.tool",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/68a00317efcaf30025ce65bad5b30655abb30458",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/build_oc.tool",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/build_oc.tool?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/68a00317efcaf30025ce65bad5b30655abb30458",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/build_oc.tool"
+    }
+  },
+  {
+    "name": "xcbuild.tool",
+    "path": "xcbuild.tool",
+    "sha": "780d50451c3aefd52b5785c7cd983a6ae922201f",
+    "size": 124,
+    "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/xcbuild.tool?ref=master",
+    "html_url": "https://github.com/acidanthera/OpenCorePkg/blob/master/xcbuild.tool",
+    "git_url": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/780d50451c3aefd52b5785c7cd983a6ae922201f",
+    "download_url": "https://raw.githubusercontent.com/acidanthera/OpenCorePkg/master/xcbuild.tool",
+    "type": "file",
+    "_links": {
+      "self": "https://api.github.com/repos/acidanthera/OpenCorePkg/contents/xcbuild.tool?ref=master",
+      "git": "https://api.github.com/repos/acidanthera/OpenCorePkg/git/blobs/780d50451c3aefd52b5785c7cd983a6ae922201f",
+      "html": "https://github.com/acidanthera/OpenCorePkg/blob/master/xcbuild.tool"
+    }
+  }
+]

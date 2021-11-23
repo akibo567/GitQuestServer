@@ -1,5 +1,7 @@
 const express = require('express')
 const cors = require('cors');
+const { execSync } = require('child_process')
+const path = require('path');
 const app = express()
 const port = 3000
 
@@ -8,8 +10,6 @@ const port = 3000
 const Filedata = require('./filedata.js');
 const fs = require('fs');
 const dir_path = "./Localrepo";
-const proj_name = "hello-world";
-const proj_dir = "";
 
 
 
@@ -43,6 +43,9 @@ app.get("/contents", (req, res, next) => {
         obj.name = file_name;
         obj.path = proj_path +file_name;
         obj.size = stats.size;
+        obj.atime = stats.atime;
+        obj.mtime = stats.mtime;
+
 
         if(stats.isDirectory()){ // フォルダの場合
             //getFiles(fullPath); // getFilesを再帰的に呼び出し
@@ -57,6 +60,7 @@ app.get("/contents", (req, res, next) => {
                 + '\n'; 
             console.log(text);*/
             obj.type = "file";
+            obj.ext = path.extname(file_name);
         }
         obj_list.push(obj);
     });
@@ -66,6 +70,12 @@ app.get("/contents", (req, res, next) => {
 
 app.get("/json_test", (req, res, next) => {
     res.json(require('../responce.json'))
+});
+
+app.get("/command_test", (req, res, next) => {
+    stdout = execSync('ls -a')
+    console.log(`stdout: ${stdout.toString()}`)
+    res.send(`stdout: ${stdout.toString()}`)
 });
 
 app.post('/pst', function(req, res) {

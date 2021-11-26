@@ -59,8 +59,14 @@ app.get("/contents", (req, res, next) => {
                 + ('0' + stats.birthtime.getDate()).slice(-2) // ファイル作成日；日
                 + '\n'; 
             console.log(text);*/
+            let file_data = fs.readFileSync(fullPath);
+
             obj.type = "file";
             obj.ext = path.extname(file_name);
+
+            //obj.data = file_data;
+            obj.loc = file_data.toString().split('\n').length;
+            //split('\n').length
         }
         obj_list.push(obj);
     });

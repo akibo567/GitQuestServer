@@ -9,6 +9,7 @@ class Filedata {
         this.atime = 0;
         this.mtime = 0;
         this.ext = "";
+        this.loc = 0;
     }
 }
 

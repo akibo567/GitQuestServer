@@ -40,6 +40,8 @@ app.get("/contents", (req, res, next) => {
         let obj = new Filedata();
         let fullPath = dir_path + '/'+ proj_name+ "/"+ proj_path +file_name; // フルパスを取得
         let stats = fs.statSync(fullPath) // ファイル（またはフォルダ）の情報を取得
+        let line_list = [];
+        let file_text ="";
         obj.name = file_name;
         obj.path = proj_path +file_name;
         obj.size = stats.size;
@@ -62,10 +64,23 @@ app.get("/contents", (req, res, next) => {
             let file_data = fs.readFileSync(fullPath);
 
             obj.type = "file";
-            obj.ext = path.extname(file_name);
+            obj.ext = path.extname(file_name).slice(1);
 
-            //obj.data = file_data;
-            obj.loc = file_data.toString().split('\n').length;
+            file_text = file_data.toString();
+            line_list = file_text.split('\n');
+            obj.loc = line_list.length;
+            if(obj.ext == "c"){
+                obj.coc = 10;
+            }else if(obj.ext == "java"){
+                var class_line = file_text.match(/class +[a-zA-Z0-9]+[ a-zA-Z0-9]*[\t\r\n]*\{/gi);
+                if(class_line){
+                    obj.coc = class_line.length;
+                }
+                var func_line = file_text.match(/[a-zA-Z0-9]+ +[a-zA-Z0-9]+\([a-zA-z0-9 ,]*\)[ \t\r\n]*\{/gi);
+                if(func_line){
+                    obj.foc = func_line.length;
+                }
+            }
             //split('\n').length
         }
         obj_list.push(obj);

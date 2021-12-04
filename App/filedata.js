@@ -10,6 +10,8 @@ class Filedata {
         this.mtime = 0;
         this.ext = "";
         this.loc = 0;
+        this.coc = 0;
+        //this.foc = 0;
     }
 }
 

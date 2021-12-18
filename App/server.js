@@ -106,36 +106,70 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
             line_list = file_text.split('\n');
             obj.loc = line_list.length;
             if(obj.ext == "c"){
+                var Reserved_word = [
+                    'auto','break','case','char','const','continue',
+                    'default','do','double','else','enum','extern',
+                    'float','for','goto','if','int','long','register',
+                    'return','signed','sizeof','short','static','struct',
+                    'switch','typedef','union','unsigned','void',
+                    'volatile','while'];
                 obj.coc = 0;
-                var func_line = file_text.match(/[a-zA-Z0-9]+[ \t\r\n]+[a-zA-Z0-9]+[ \t\r\n]*\([a-zA-z0-9 \t\r\n,]*\)[ \t\r\n]*\{/gi);
-                if(func_line){
-                    obj.foc = func_line.length;
-                }else{
-                    obj.foc = 0;
-                }
             }else if(obj.ext == "cpp"){
-                var class_line = file_text.match(/class +[a-zA-Z0-9]+[ a-zA-Z0-9]*[\t\r\n]*\{/gi);
-                if(class_line){
-                    obj.coc = class_line.length;
-                }
-                var func_line = file_text.match(/[a-zA-Z0-9]+[ \t\r\n]+[a-zA-Z0-9]+[ \t\r\n]*\([a-zA-z0-9 \t\r\n,]*\)[ \t\r\n]*\{/gi);
-                if(func_line){
-                    obj.foc = func_line.length;
-                }else{
-                    obj.foc = 0;
-                }
-            }else if(obj.ext == "java"){
-                var class_line = file_text.match(/class +[a-zA-Z0-9]+[ a-zA-Z0-9]*[\t\r\n]*\{/gi);
-                if(class_line){
-                    obj.coc = class_line.length;
-                }
-                //todo 予約語を除外する
-                var func_line = file_text.match(/[a-zA-Z0-9]+[ \t\r\n]+[a-zA-Z0-9]+[ \t\r\n]*\([a-zA-z0-9 \t\r\n,]*\)[ \t\r\n]*\{/gi);
-                    if(func_line){
-                        obj.foc = func_line.length;
-                    }else{
-                        obj.foc = 0;
+                var Reserved_word = [
+                    'auto','break','case','char','const','continue',
+                    'default','do','double','else','enum','extern',
+                    'float','for','goto','if','int','long','register',
+                    'return','signed','sizeof','short','static','struct',
+                    'switch','typedef','union','unsigned','void',
+                    'volatile','while','this','template','wchar_t',
+                    'typeid','bool','true','false','dynamic_cast',
+                    'reinterpret_cast','const_cast','static_cast',
+                    'mutable','throw','try','catch','explicit','using',
+                    'export','new','delete','namespace','inline',
+                    'class','public','friend','protected','private',
+                    'virtual','operator',];
+                    var class_line = file_text.match(/class +[a-zA-Z0-9]+[ a-zA-Z0-9]*[\t\r\n]*\{/gi);
+                    if(class_line){
+                        obj.coc = class_line.length;
                     }
+            }else if(obj.ext == "java"){
+                var Reserved_word = ['abstract','continue','for','new','switch',
+                    'assert','default','if','package','synchronized',
+                    'boolean','do','goto','private','this',
+                    'break','double','implements','protected','throw',
+                    'byte','else','import','public','throws',
+                    'case','enum','instanceof','return','transient',
+                    'catch','extends','int','short','try',
+                    'char','final','interface','static','void',
+                    'class','finally','long','strictfp','volatile',
+                    'const','float','native','super','while'];
+                var class_line = file_text.match(/class +[a-zA-Z0-9]+[ a-zA-Z0-9]*[\t\r\n]*\{/gi);
+                if(class_line){
+                    obj.coc = class_line.length;
+                }
+            }
+
+            if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp"){
+                //todo 予約語を除外する
+                obj.foc = 0;
+                obj.func_fields = [];
+                var func_line = file_text.match(/[a-zA-Z0-9]+[ \t\r\n]+[a-zA-Z0-9]+[ \t\r\n]*\([a-zA-z0-9 \t\r\n,*=&?:<>@]*\)[ \t\r\n]*\{/gi);
+                if(func_line){
+                    func_line.forEach(function(line){
+                        let not_rword = true; 
+                        func_name = line.match(/[a-zA-Z0-9]+[ \t\r\n]*\(/i);
+                        func_name = func_name[0].match(/[a-zA-Z0-9]+/i);
+                        Reserved_word.forEach(function(rword){ 
+                            if(rword.toLowerCase() == func_name[0].toLowerCase()){
+                                not_rword = false;
+                            }
+                        });
+                        if(not_rword){
+                            obj.foc++;
+                            obj.func_fields.push(func_name[0].toLowerCase());
+                        }
+                    });
+                }
             }
             //split('\n').length
         }

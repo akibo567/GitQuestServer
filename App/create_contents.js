@@ -7,10 +7,15 @@ const path = require('path');
 const { ifError } = require('assert');
 
 const dir_path = "./Localrepo";
+const gdata_path = "./Gamedata";
+
 const Filedata = require('./filedata.js');
 
 
 var obj_list = [];
+var proj_name;
+var proj_name2;
+var mode;
 
 // routerに関わらず、アクセス日時を出力するミドルウェア
 /*router.use((req, res, next) => {
@@ -29,18 +34,26 @@ router.get("/", (req, res, next) => {
 
     obj_list =[];
 
-    let mode = req.query.mode;
-    let proj_name = req.query.repo;
-    let proj_name2 = req.query.repo2;
+    mode = req.query.mode;
+    proj_name = req.query.repo;
+    proj_name2 = req.query.repo2;
 
     let proj_path = req.query.path ? req.query.path + "/" : "";
 
-    obj_list = get_File_Metrix(proj_name,proj_path,0)
+    let current_path = proj_path;
 
-    if(mode == "l_r_diff"){
-        get_File_Metrix(proj_name2,proj_path,1)
+
+    try{
+        fs.rmSync(gdata_path + "/" + proj_name, { recursive: true }, (err) => {
+            //if (err) throw err;
+        });
+    }catch{
+        
     }
- 
+
+
+    CreateGameDataJson(proj_path);
+
     res.send(obj_list);
 });
 
@@ -222,5 +235,35 @@ function get_code_scale_score(loc,foc){
     }
 }
 
+//指定ディレクトリのファイルを作成する（再帰的に）
+function CreateGameDataJson(current_path){
+    fs.mkdirSync(gdata_path + "/" + proj_name + "/" +current_path, (err) => {
+        if (err) { throw err; }
+    });
+    
+    obj_list = get_File_Metrix(proj_name,current_path +'/',0)
+
+    if(mode == "l_r_diff"){
+        get_File_Metrix(proj_name2,current_path + '/',1)
+    }
+    
+    // 書き込み
+    fs.writeFileSync(gdata_path + "/" + proj_name + "/" +current_path + "/index.json", JSON.stringify(obj_list, null, '\t'), (err) => {
+        if (err) throw err;
+    });
+
+    files = fs.readdirSync(dir_path + "/" + proj_name + "/"+ current_path);
+    files.forEach(function(file_name){ 
+
+        let fullPath = (current_path != "") ? dir_path + "/" + proj_name + "/" + current_path + "/" + file_name : dir_path + "/" + proj_name + "/" + file_name ; // フルパスを取得
+        let stats = fs.statSync(fullPath) // ファイル（またはフォルダ）の情報を取得
+        if(stats.isDirectory()){
+            CreateGameDataJson((current_path != "") ? current_path + "/" + file_name : file_name)
+        }
+
+    });
+
+
+}
 
 module.exports = router;

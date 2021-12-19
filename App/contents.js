@@ -33,7 +33,7 @@ router.get("/", (req, res, next) => {
     let proj_name = req.query.repo;
     let proj_name2 = req.query.repo2;
 
-    let proj_path = req.query.path ? req.query.path + "/" : "";
+    let proj_path = (req.query.path && req.query.path != "") ? req.query.path + "/" : "";
 
     obj_list = get_File_Metrix(proj_name,proj_path,0)
 

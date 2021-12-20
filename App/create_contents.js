@@ -19,6 +19,9 @@ var proj_name;
 var proj_name2;
 var proj_dir_name;
 
+var proj_file_number = 0;
+var proj_big_metrix_list = {};
+
 var mode;
 
 // routerに関わらず、アクセス日時を出力するミドルウェア
@@ -92,6 +95,7 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
         obj.atime = stats.atime;
         obj.mtime = stats.mtime;
 
+        proj_file_number++;
 
         if(stats.isDirectory()){ // フォルダの場合
             //getFiles(fullPath); // getFilesを再帰的に呼び出し
@@ -204,14 +208,17 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
                         old_obj.new_created = 1;
                     }
                     old_obj.code_scale_diff_score = get_code_scale_score(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
+                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
                 }
             });
             if(!match){
                 obj.code_scale_diff_score = get_code_scale_score(obj.loc,obj.foc);
+                proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
                 obj.new_created = 2;
                 obj_list.push(obj);
             }
         }else{
+            proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
             obj.new_created = -2;
             temp_obj_list.push(obj);
         }
@@ -256,6 +263,10 @@ function get_code_scale_score(loc,foc){
 
 //指定ディレクトリのファイルを作成する（再帰的に）
 function CreateGameDataJson(current_path){
+    if(current_path == "" || current_path == "/"){
+        proj_file_number = 0;
+        proj_big_metrix_list = {};
+    }
     fs.mkdirSync(gdata_path + "/" + proj_dir_name + "/" +current_path, (err) => {
         if (err) { throw err; }
     });
@@ -280,6 +291,26 @@ function CreateGameDataJson(current_path){
         if(current_next_dir_list[dir_name] == 1){
             CreateGameDataJson((current_path != "") ? current_path + "/" + dir_name : dir_name)
         }
+    }
+
+    //リポジトリ全体のメトリクスを書き込み
+    if(current_path == "" || current_path == "/"){
+        //console.log(proj_big_metrix_list);
+        sort_proj_big_metrix_list = Object.keys(proj_big_metrix_list).map((k)=>({ key: k, score: proj_big_metrix_list[k] }));
+
+        //値段順
+        sort_proj_big_metrix_list.sort((a, b) => b.score - a.score);
+
+        //配列⇒オブジェクト　で元に戻す
+        proj_big_metrix_list = Object.assign({}, ...sort_proj_big_metrix_list.map((item) => ({
+            [item.key]: item.score,
+        })));
+
+        repo_data = {file_number : proj_file_number,big_metrix_list : proj_big_metrix_list}
+            // 書き込み
+        fs.writeFileSync(gdata_path + "/" + proj_dir_name  + "/repo_data.json", JSON.stringify(repo_data, null, '\t'), (err) => {
+            if (err) throw err;
+        });
     }
 }
 

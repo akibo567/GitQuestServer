@@ -7,6 +7,8 @@ const path = require('path');
 const { ifError } = require('assert');
 
 const dir_path = "./Localrepo";
+const gdata_path = "./Gamedata";
+
 const Filedata = require('./filedata.js');
 
 
@@ -19,8 +21,20 @@ var obj_list = [];
 });*/
 
 
-
 router.get("/", (req, res, next) => {
+    let mode = req.query.mode;
+    let proj_name = req.query.repo;
+    let proj_name2 = req.query.repo2;
+    let proj_path = (req.query.path && req.query.path != "/") ? req.query.path + "/" : "";
+
+    if(mode == "l_r_diff"){
+        res.json(require('../Gamedata/'+proj_name+ '+' + proj_name2 + '/' + proj_path + 'index.json'))
+    }else{
+        res.json(require('../Gamedata/'+proj_name+ '/' + proj_path + 'index.json'))
+    }
+});
+
+router.get("/old", (req, res, next) => {
     // アクセスログ
     console.log(req.method, req.url) 
 

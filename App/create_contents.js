@@ -13,8 +13,12 @@ const Filedata = require('./filedata.js');
 
 
 var obj_list = [];
+var next_dir_list = [];
+
 var proj_name;
 var proj_name2;
+var proj_dir_name;
+
 var mode;
 
 // routerに関わらず、アクセス日時を出力するミドルウェア
@@ -40,19 +44,29 @@ router.get("/", (req, res, next) => {
 
     let proj_path = req.query.path ? req.query.path + "/" : "";
 
-    let current_path = proj_path;
 
+    if(mode == "l_r_diff"){
+        proj_dir_name = proj_name + "+" + proj_name2;
+    }else{
+        proj_dir_name = proj_name;
+    }
 
+    console.log("Cleaning old "+proj_dir_name + "...");
+    
     try{
-        fs.rmSync(gdata_path + "/" + proj_name, { recursive: true }, (err) => {
+        fs.rmSync(gdata_path + "/" + proj_dir_name, { recursive: true }, (err) => {
             //if (err) throw err;
         });
     }catch{
         
     }
-
+    
+    console.log("Done");
+    console.log("Generating new "+proj_dir_name + "...");
 
     CreateGameDataJson(proj_path);
+
+    console.log("Done");
 
     res.send(obj_list);
 });
@@ -60,6 +74,10 @@ router.get("/", (req, res, next) => {
 //あるディレクトリのファイルメトリクスの取得
 function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
     let temp_obj_list =[];
+
+    if(!fs.existsSync(dir_path + "/" + proj_name + "/"+ proj_path)){
+        return temp_obj_list;
+    }
 
     files = fs.readdirSync(dir_path + "/" + proj_name + "/"+ proj_path);
     files.forEach(function(file_name){ 
@@ -78,6 +96,7 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
         if(stats.isDirectory()){ // フォルダの場合
             //getFiles(fullPath); // getFilesを再帰的に呼び出し
             obj.type = "dir";
+            next_dir_list[file_name] = 1;
         }else{ // ファイルの場合
             // ファイル情報を取得
             /*text = file_name // ファイル名
@@ -237,33 +256,31 @@ function get_code_scale_score(loc,foc){
 
 //指定ディレクトリのファイルを作成する（再帰的に）
 function CreateGameDataJson(current_path){
-    fs.mkdirSync(gdata_path + "/" + proj_name + "/" +current_path, (err) => {
+    fs.mkdirSync(gdata_path + "/" + proj_dir_name + "/" +current_path, (err) => {
         if (err) { throw err; }
     });
     
+    next_dir_list = [];
+
     obj_list = get_File_Metrix(proj_name,current_path +'/',0)
 
     if(mode == "l_r_diff"){
         get_File_Metrix(proj_name2,current_path + '/',1)
     }
     
+    let current_next_dir_list = next_dir_list;
+
     // 書き込み
-    fs.writeFileSync(gdata_path + "/" + proj_name + "/" +current_path + "/index.json", JSON.stringify(obj_list, null, '\t'), (err) => {
+    fs.writeFileSync(gdata_path + "/" + proj_dir_name + "/" +current_path + "/index.json", JSON.stringify(obj_list, null, '\t'), (err) => {
         if (err) throw err;
     });
 
-    files = fs.readdirSync(dir_path + "/" + proj_name + "/"+ current_path);
-    files.forEach(function(file_name){ 
 
-        let fullPath = (current_path != "") ? dir_path + "/" + proj_name + "/" + current_path + "/" + file_name : dir_path + "/" + proj_name + "/" + file_name ; // フルパスを取得
-        let stats = fs.statSync(fullPath) // ファイル（またはフォルダ）の情報を取得
-        if(stats.isDirectory()){
-            CreateGameDataJson((current_path != "") ? current_path + "/" + file_name : file_name)
+    for (let dir_name in current_next_dir_list) {
+        if(current_next_dir_list[dir_name] == 1){
+            CreateGameDataJson((current_path != "") ? current_path + "/" + dir_name : dir_name)
         }
-
-    });
-
-
+    }
 }
 
 module.exports = router;

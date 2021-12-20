@@ -218,7 +218,9 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
                 obj_list.push(obj);
             }
         }else{
-            proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+            if(!stats.isDirectory()){
+                proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+            }
             obj.new_created = -2;
             temp_obj_list.push(obj);
         }
@@ -306,7 +308,7 @@ function CreateGameDataJson(current_path){
             [item.key]: item.score,
         })));
 
-        repo_data = {file_number : proj_file_number,big_metrix_list : proj_big_metrix_list}
+        repo_data = {file_number : proj_file_number,big_metrix_list : sort_proj_big_metrix_list}
             // 書き込み
         fs.writeFileSync(gdata_path + "/" + proj_dir_name  + "/repo_data.json", JSON.stringify(repo_data, null, '\t'), (err) => {
             if (err) throw err;

@@ -22,6 +22,8 @@ var proj_dir_name;
 var proj_file_number = 0;
 var proj_big_metrix_list = {};
 
+var CollectOnlyProgramFile = false;
+
 var mode;
 
 // routerに関わらず、アクセス日時を出力するミドルウェア
@@ -32,20 +34,23 @@ var mode;
 
 
 
-router.get("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
     // アクセスログ
     console.log(req.method, req.url) 
+    console.log(req.body) 
+
 
     //ヘッダ
     res.header('Content-Type', 'application/json; charset=utf-8')
 
     obj_list =[];
 
-    mode = req.query.mode;
-    proj_name = req.query.repo;
-    proj_name2 = req.query.repo2;
+    mode = req.body.mode;
+    proj_name = req.body.repo;
+    proj_name2 = req.body.repo2;
+    CollectOnlyProgramFile = req.body.CollectOnlyProgramFile;
 
-    let proj_path = req.query.path ? req.query.path + "/" : "";
+    let proj_path = req.body.path ? req.body.path + "/" : "";
 
 
     if(mode == "l_r_diff"){
@@ -55,13 +60,12 @@ router.get("/", (req, res, next) => {
     }
 
     console.log("Cleaning old "+proj_dir_name + "...");
-    
     try{
         fs.rmSync(gdata_path + "/" + proj_dir_name, { recursive: true }, (err) => {
             //if (err) throw err;
         });
-    }catch{
-        
+    }catch(e){
+
     }
     
     console.log("Done");
@@ -71,7 +75,8 @@ router.get("/", (req, res, next) => {
 
     console.log("Done");
 
-    res.send(obj_list);
+    res.statusCode = 200;
+    res.send("Done");
 });
 
 //あるディレクトリのファイルメトリクスの取得
@@ -208,18 +213,24 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
                         old_obj.new_created = 1;
                     }
                     old_obj.code_scale_diff_score = get_code_scale_score(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
-                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
+                    if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp" || !(CollectOnlyProgramFile)){
+                        proj_big_metrix_list[obj.path] = get_code_scale_score_k(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
+                    }
                 }
             });
             if(!match){
                 obj.code_scale_diff_score = get_code_scale_score(obj.loc,obj.foc);
-                proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+                if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp" || !(CollectOnlyProgramFile)){
+                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+                }
                 obj.new_created = 2;
                 obj_list.push(obj);
             }
         }else{
             if(!stats.isDirectory()){
-                proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+                if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp" || !(CollectOnlyProgramFile)){
+                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+                }
             }
             obj.new_created = -2;
             temp_obj_list.push(obj);

@@ -23,6 +23,8 @@ var proj_file_number = 0;
 var proj_big_metrix_list = {};
 
 var CollectOnlyProgramFile = false;
+var IgnoreDotFile = false;
+
 
 var mode;
 
@@ -49,6 +51,8 @@ router.post("/", (req, res, next) => {
     proj_name = req.body.repo;
     proj_name2 = req.body.repo2;
     CollectOnlyProgramFile = req.body.CollectOnlyProgramFile;
+    IgnoreDotFile = req.body.IgnoreDotFile;
+
 
     let proj_path = req.body.path ? req.body.path + "/" : "";
 
@@ -101,6 +105,10 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
         obj.mtime = stats.mtime;
 
         proj_file_number++;
+
+        if(obj.name.charAt(0) == "." && IgnoreDotFile){
+            return;
+        }
 
         if(stats.isDirectory()){ // フォルダの場合
             //getFiles(fullPath); // getFilesを再帰的に呼び出し
@@ -202,8 +210,8 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
                     old_obj.new_loc = obj.loc;
                     old_obj.new_coc = obj.coc;
                     old_obj.new_foc = obj.foc;
-                    old_scale_k = get_code_scale_score_k(old_obj.loc,old_obj.foc);
-                    new_scale_k = get_code_scale_score_k(obj.loc,obj.foc);
+                    old_scale_k = get_code_scale_score_k(old_obj.loc,old_obj.foc,old_obj.coc);
+                    new_scale_k = get_code_scale_score_k(obj.loc,obj.foc,obj.coc);
 
                     if(old_scale_k == new_scale_k){
                         old_obj.new_created = 0;
@@ -212,16 +220,16 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
                     }else{
                         old_obj.new_created = 1;
                     }
-                    old_obj.code_scale_diff_score = get_code_scale_score(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
+                    old_obj.code_scale_diff_score = get_code_scale_score(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc),Math.abs(old_obj.diff_coc));
                     if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp" || !(CollectOnlyProgramFile)){
-                        proj_big_metrix_list[obj.path] = get_code_scale_score_k(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc));
+                        proj_big_metrix_list[obj.path] = get_code_scale_score_k(Math.abs(old_obj.diff_loc),Math.abs(old_obj.diff_foc),Math.abs(old_obj.diff_coc));
                     }
                 }
             });
             if(!match){
-                obj.code_scale_diff_score = get_code_scale_score(obj.loc,obj.foc);
+                obj.code_scale_diff_score = get_code_scale_score(obj.loc,obj.foc,obj.coc);
                 if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp" || !(CollectOnlyProgramFile)){
-                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc,obj.coc);
                 }
                 obj.new_created = 2;
                 obj_list.push(obj);
@@ -229,7 +237,7 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
         }else{
             if(!stats.isDirectory()){
                 if(obj.ext == "java" || obj.ext == "c" || obj.ext == "cpp" || !(CollectOnlyProgramFile)){
-                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc);
+                    proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc,obj.coc);
                 }
             }
             obj.new_created = -2;
@@ -240,12 +248,12 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
 }
 
 //K値を計算する
-function get_code_scale_score_k(loc,foc){
-        return 1 + loc + foc * 10;
+function get_code_scale_score_k(loc,foc,coc){
+        return 1 + loc + foc * 10 + coc * 20;
 }
 
 //コードの大きさのスコアを計算する
-function get_code_scale_score(loc,foc){
+function get_code_scale_score(loc,foc,coc){
     if(!(foc > 0)){
         if(loc > 2000){
             return 8;
@@ -267,7 +275,7 @@ function get_code_scale_score(loc,foc){
             return 0;
         }
     } else{
-        k = get_code_scale_score_k(loc,foc);
+        k = get_code_scale_score_k(loc,foc,coc);
         kk = Math.floor(2 * Math.log10(k));
         if(kk > 8)kk = 8;
         return kk;

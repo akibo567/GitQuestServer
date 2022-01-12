@@ -240,6 +240,7 @@ function get_File_Metrix(proj_name,proj_path,comp_mode = 0){
                     proj_big_metrix_list[obj.path] = get_code_scale_score_k(obj.loc,obj.foc,obj.coc);
                 }
             }
+            obj.code_scale_diff_score = get_code_scale_score(obj.loc,obj.foc,obj.coc);
             obj.new_created = -2;
             temp_obj_list.push(obj);
         }
